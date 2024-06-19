@@ -37,8 +37,7 @@ def write_pdf(text: str, output_path: str):
 
 
 if __name__ == "__main__":
-    input_pdf_path = input("Enter your input PDF path: ")  
-    # output_pdf_path = # input("Enter your output PDF path: ")  
+    input_pdf_path = input("Enter your input PDF path: ")   
     text = read_pdf(input_pdf_path)
     # print(tokenize(text))
    
@@ -50,7 +49,7 @@ if __name__ == "__main__":
             print("page ", str(idx+1))
             translated_txt.append(translate(text[idx]))
             # write to html output every 50 pages
-            if idx+1 % 50 == 0 or idx == n-1:
+            if (idx+1) % 50 == 0 or idx == n-1:
                output_idx = int(idx / 50)
                write_to_html_2(translated_txt, f"output_{output_idx}.html") 
                translated_txt = [] # empty the translated text array 
